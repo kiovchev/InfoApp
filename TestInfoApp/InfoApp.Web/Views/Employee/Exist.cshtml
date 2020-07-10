@@ -1,0 +1,9 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.EmployeeOutputModels;
+@model EmployeeExistOutputModel;
+
+@{
+    ViewData["Title"] = "Exist";
+}
+
+<h3 class="text-danger ">This employee already exists in database!!!</h3>
+<a type="button" class="btn btn-primary mt-3" href="~/Employee/AllByOffice/@Model.Id">Back</a>

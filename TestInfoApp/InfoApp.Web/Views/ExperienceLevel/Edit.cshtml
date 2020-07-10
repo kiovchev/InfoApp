@@ -1,0 +1,25 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.InputModels.ExperienceLevelInputModels;
+@model LevelEditInputModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-secondary">Edit</h1>
+        <form id="account" method="post">
+            <h4 class="text-secondary">Edit Experience level</h4>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group">
+                <label class="text-primary">Experience level name</label>
+                <input name="name" class="form-control" value="@Model.Name" />
+            </div>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group text-lg-right">
+                <a type="button" class="btn btn-primary" href="~/ExperienceLevel/All">Back</a>
+                <button type="submit" class="btn btn-secondary" src="~ExperienceLevel/Edit/@Model.Id&@Model.Name">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

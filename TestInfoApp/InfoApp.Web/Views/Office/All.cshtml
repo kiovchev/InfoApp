@@ -1,0 +1,71 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.OfficeOtputModels;
+@model OfficesByCompanyOutputModel;
+
+@{
+    ViewData["Title"] = "All";
+}
+
+@{
+    int count = 0;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-secondary">Offices</h3>
+        </div>
+        <div class="col offset-8">
+            <a type="button" class="btn btn-primary" href="~/Company/All">Back</a>
+            <a type="button" class="btn bg-secondary text-white" href="~/Office/Create/@Model.CompanyId">Add</a>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive mt-5">
+    @if (Model.Offices.Count() == 0)
+    {
+        <h3 class="text-danger ">No offices in database!!!</h3>
+    }
+    else
+    {
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th class="text-secondary border" scope="col">#</th>
+                    <th class="text-secondary border" scope="col">Office name</th>
+                    <th class="text-secondary border" scope="col">Company</th>
+                    <th class="text-secondary border" scope="col">Country</th>
+                    <th class="text-secondary border" scope="col">City</th>
+                    <th class="text-secondary border" scope="col">Street name</th>
+                    <th class="text-secondary border" scope="col">Street number</th>
+                    <th class="text-secondary border" scope="col">Head</th>
+                    <th class="text-secondary border" scope="col">Employees</th>
+                    <th class="text-secondary border" scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Offices.Count(); i++)
+                {
+                    ++count;
+                    <tr class="text-center">
+                        <td class="text-secondary border" scope="col">@count</td>
+                        <td class="text-secondary border" name="oficeName" scope="col">@Model.Offices[i].OfficeName</td>
+                        <td class="text-secondary border" name="companyName" scope="col">@Model.Offices[i].CompanyName</td>
+                        <td class="text-secondary border" name="countryName" scope="col">@Model.Offices[i].CountryName</td>
+                        <td class="text-secondary border" name="cityName" scope="col">@Model.Offices[i].CityName</td>
+                        <td class="text-secondary border" name="street" scope="col">@Model.Offices[i].Street</td>
+                        <td class="text-secondary border" name="streetNumber" scope="col">@Model.Offices[i].StreetNumber</td>
+                        <td class="text-secondary border" name="headquarters" scope="col">@Model.Offices[i].Headquarters</td>
+                        <td class="text-secondary border" scope="col">
+                            <a class="btn bg-success text-white" href="~/Employee/AllByOffice/@Model.Offices[i].OfficeId">Employees</a>
+                        </td>
+                        <td class="text-secondary border" scope="col">
+                            <a class="btn bg-secondary text-white" href="~/Office/Edit/@Model.Offices[i].OfficeId">Edit</a>
+                            <a class="btn bg-danger text-white" href="~/Office/Delete/@Model.Offices[i].OfficeId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

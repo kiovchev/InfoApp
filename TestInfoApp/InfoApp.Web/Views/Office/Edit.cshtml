@@ -1,0 +1,54 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.OfficeOtputModels;
+@model OfficeEditOutputModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-secondary">Edit</h1>
+        <form id="account" method="post">
+            <h4 class="text-secondary">Edit office</h4>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group">
+                <label class="text-primary">Office name</label>
+                <input name="officeName" class="form-control" value="@Model.officeModel.OfficeName" />
+                <input name="officeId" value="@Model.officeModel.OfficeId" hidden />
+                <input name="companyId" value="@Model.officeModel.CompanyId" hidden />
+            </div>
+            <div class="form-group">
+                <label class="text-primary">City name</label>
+                <select class="form-control" name="cityName" type="text">
+                    <option>@Model.officeModel.CityName</option>
+                    @for (int i = 0; i < Model.Cities.Count(); i++)
+                    {
+                        <option>@Model.Cities[i].CityName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Street name</label>
+                <input name="streetName" class="form-control" value="@Model.officeModel.StreetName" />
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Street number</label>
+                <input min="1" type="number" name="streetNumber" class="form-control" value="@Model.officeModel.StreetNumber" />
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Headquaters</label>
+                <select class="form-control" name="headquaters" type="text">
+                    <option>@Model.officeModel.Headquaters</option>
+                    <option>yes</option>
+                    <option>no</option>
+                </select>
+            </div>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group text-lg-right">
+                <a type="button" class="btn btn-primary" href="~/Office/All/@Model.officeModel.CompanyId">Back</a>
+                <button type="submit" class="btn btn-secondary" src="~Office/Edit/@Model.officeModel.CompanyId">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+

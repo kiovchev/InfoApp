@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-secondary">Add</h1>
+        <form id="account" method="post">
+            <h4 class="text-secondary">Create new company</h4>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group">
+                <label class="text-primary">Company name</label>
+                <input name="companyName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Created at: </label>
+                <input type="date" name="creationdate">
+            </div>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group text-lg-right">
+                <a type="button" class="btn btn-primary" href="~/Company/All">Back</a>
+                <button type="submit" class="btn btn-secondary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

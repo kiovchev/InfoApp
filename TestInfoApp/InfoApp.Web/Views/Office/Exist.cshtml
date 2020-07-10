@@ -1,0 +1,10 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.OfficeOtputModels;
+@model OfficeExistOutputModel;
+
+@{
+    ViewData["Title"] = "Exist";
+}
+
+<h3 class="text-danger ">This office already exists in database!!!</h3>
+<a type="button" class="btn btn-primary mt-3" href="~/Office/All/@Model.Id">Back</a>
+

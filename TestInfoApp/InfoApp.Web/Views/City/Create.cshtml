@@ -1,0 +1,35 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.CountryOutputModels;
+@model List<CountryOutputModel>;
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-secondary">Add</h1>
+        <form id="account" method="post">
+            <h4 class="text-secondary">Create new city</h4>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group">
+                <label class="text-primary">City name</label>
+                <input name="name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Country name</label>
+                <select class="form-control" name="countryName" type="text">
+                    <option selected disabled>-- Choose country --</option>
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+                        <option>@Model[i].CountryName</option>
+                    }
+                </select>
+            </div>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group text-lg-right">
+                <a type="button" class="btn btn-primary" href="~/City/All">Back</a>
+                <button type="submit" class="btn btn-secondary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

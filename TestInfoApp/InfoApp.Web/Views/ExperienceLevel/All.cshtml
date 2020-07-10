@@ -1,0 +1,55 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.ExperienceLevelOutputModels;
+@model List<LevelOutputModel>;
+
+@{
+    ViewData["Title"] = "All";
+}
+
+@{
+    int count = 0;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-secondary">Experience levels</h3>
+        </div>
+        <div class="col offset-8">
+            <a type="button" class="btn btn-primary" href="~/Administration/All">Back</a>
+            <a type="button" class="btn bg-secondary text-white" href="~/ExperienceLevel/Create">Add</a>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive mt-5">
+    @if (Model.Count() == 0)
+    {
+        <h3 class="text-danger ">No information for experience levels in database!!!</h3>
+    }
+    else
+    {
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th class="text-secondary border" scope="col">#</th>
+                    <th class="text-secondary border" scope="col">Experience level name</th>
+                    <th class="text-secondary border" scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    ++count;
+                    <tr class="text-center">
+                        <td class="text-secondary border" scope="col">@count</td>
+                        <td class="text-secondary border" name="levelName" scope="col">@Model[i].LevelName</td>
+                        <td class="text-secondary border" scope="col">
+                            <a class="btn bg-secondary text-white" href="~/ExperienceLevel/Edit/@Model[i].LevelId">Edit</a>
+                            <a class="btn bg-danger text-white" href="~/ExperienceLevel/Delete/@Model[i].LevelId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

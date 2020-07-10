@@ -1,0 +1,9 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.OfficeOtputModels;
+@model ExistEmployeesOfficeOutputModel;
+
+@{
+    ViewData["Title"] = "ExistEmployees";
+}
+
+<h3 class="text-danger">Can not remove this office before to delete employees who are connected with it!!!</h3>
+<a type="button" class="btn btn-primary mt-3" href="~/Office/All/@Model.Id">Back</a>

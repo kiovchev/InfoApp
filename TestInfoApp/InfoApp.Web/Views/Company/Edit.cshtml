@@ -1,0 +1,29 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.InputModels.CompanyInputModels;
+@model CompanyEditInputModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-secondary">Edit</h1>
+        <form id="account" method="post">
+            <h4 class="text-secondary">Edit company</h4>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group">
+                <label class="text-primary">Company name</label>
+                <input name="companyName" class="form-control" value="@Model.CompanyName"/>
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Created at: </label>
+                <input type="date" name="creationdate" value="@Model.Creationdate.ToString("yyyy-MM-dd")">
+            </div>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group text-lg-right">
+                <a type="button" class="btn btn-primary" href="~/Company/All">Back</a>
+                <button type="submit" class="btn btn-secondary" src="~Company/Edit/@Model.Id&@Model.CompanyName&@Model.Creationdate">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

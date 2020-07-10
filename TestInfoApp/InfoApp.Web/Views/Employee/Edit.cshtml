@@ -1,0 +1,62 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.OutputModels.EmployeeOutputModels;
+@model FullEmployeeEditOutputModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-secondary">Update</h1>
+        <form id="account" method="post">
+            <h4 class="text-secondary">Edit employee</h4>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group">
+                <label class="text-primary">First name</label>
+                <input name="firstName" class="form-control" value="@Model.Employee.FirstName"/>
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Last name</label>
+                <input name="lastName" class="form-control"  value="@Model.Employee.LastName"/>
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Start at: </label>
+                <input type="date" name="startingDate"  value="@Model.Employee.StartingDate.ToString("yyyy-MM-dd")">
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Salary</label>
+                <input type="number" min="500" step="10" name="salary" class="form-control"  value="@Model.Employee.Salary"/>
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Vacation days</label>
+                <input type="number" min="20" step="1" name="vacationDays" class="form-control"  value="@Model.Employee.VacationDays"/>
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Expirience level</label>
+                <select class="form-control" name="levelName" type="text">
+                    <option>@Model.Employee.LevelName</option>
+                    @for (int i = 0; i < Model.Levels.Count(); i++)
+                    {
+                        <option>@Model.Levels[i].LevelName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="text-primary">Offices</label>
+                <select class="form-control" name="officeName" type="text">
+                    <option>@Model.Employee.OfficeName</option>
+                    @for (int i = 0; i < Model.Offices.Count(); i++)
+                    {
+                        <option>@Model.Offices[i].OfficeName</option>
+                    }
+                </select>
+            </div>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group text-lg-right">
+                <a type="button" class="btn btn-primary" href="~/Office/All/@Model.Employee.CompanyId">Back</a>
+                <button type="submit" class="btn btn-secondary" src="~/Employee/Edit/employeeId=@Model.Employee.EmployeeId&companyId=@Model.Employee.CompanyId">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+

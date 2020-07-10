@@ -1,0 +1,35 @@
+﻿@using InfoApp.Web.Models.InputOutputModels.InputModels.CityInputModels;
+@model CityALlCountriesEditModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-secondary">Edit</h1>
+        <form id="account" method="post">
+            <h4 class="text-secondary">Edit city</h4>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group">
+                <label class="text-primary">City name</label>
+                <input name="name" class="form-control" value="@Model.City.Name" />
+            </div>
+            <div class="form-group">
+                <label>Country name</label>
+            <select class="form-control" name="countryName" type="text">
+                <option>@Model.City.CountryName</option>
+                @for (int i = 0; i < Model.Countries.Count; i++)
+                {
+                    <option>@Model.Countries[i].CountryName</option>
+                }
+            </select>
+            </div>
+            <hr class="bg-secondary" style="height:2px" />
+            <div class="form-group text-lg-right">
+                <a type="button" class="btn btn-primary" href="~/City/All">Back</a>
+                <button type="submit" class="btn btn-secondary" src="~City/Edit">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
