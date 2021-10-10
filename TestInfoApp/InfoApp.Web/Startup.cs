@@ -1,18 +1,18 @@
+using InfoApp.Data;
+using InfoApp.Data.Models;
+using InfoApp.Data.Repositories;
+using InfoApp.Services.Data;
+using InfoApp.Services.Data.Contracts;
+using InfoApp.Services.Messaging;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using InfoApp.Data.Repositories;
-using InfoApp.Data;
-using InfoApp.Data.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using InfoApp.Services.Messaging;
-using InfoApp.Services.Data;
-using InfoApp.Services.Data.Contracts;
 
 namespace InfoApp.Web
 {
